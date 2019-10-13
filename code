@@ -1,0 +1,218 @@
+#include<iostream>
+#include<iomanip> // to set the width and amnipulate data.
+#include<cmath> //math library function
+#include<string> // to allow us to store strings
+#include<ctype.h> // to controle the input if we want it as uppercase or lowercase
+#include<Windows.h>
+using namespace std; 
+int main();
+
+int getchoice()
+{
+	int choice = 0;
+	
+	cout << "\tPlease Enter your choice: ";
+	cin >> setw(1) >> choice;
+	// Error check
+	while (cin.good() == false)
+	{
+		// report problem
+		system("cls");
+		cout << "Error: faulty input! try again.." << endl;
+		//Clear stream
+		cin.clear();
+		cin.ignore(INT_MAX, '\n');
+
+		// Get input again
+		system("cls");
+		cout << "Please Enter your choice: ";
+		cin >> setw(1) >> choice;
+
+	}
+
+	//Clear stream
+	cin.clear();
+	cin.ignore(INT_MAX, '\n');
+
+	return choice;
+}
+
+
+void credential()
+{
+
+	cout << "				*******************************" << endl;
+	cout << "				BITP1113 PROGRAMMING TECHNIQUE"<< endl;
+	cout << "				DR. NOR HAFEIZAH BINTI HASSAN" << endl;
+	cout << "				B031910450" << endl;
+	cout << "				*******************************" << endl;
+	cout << endl << endl;
+}
+
+void Addition()
+{
+	char subchoise;
+	double num1, num2, output;
+	system("cls"); //clear the screen before any proccess
+	cout << "Enter First Number: ";
+	cin >> num1;
+	cout << "Enter Second Number: ";
+	cin >> num2;
+	cout << "*******************************" << endl;
+	output = num1 + num2;
+	cout << "The result is: " << output << endl;
+	cout << "Press 'R' to return to the main Menu" << endl;
+	cin >> subchoise;
+	system("cls");
+	
+	if (subchoise == 'r')
+	{
+		main();
+	}
+	else
+	{
+		cout << "Press 'R' to return to the main Menu" << endl;
+		cin >> subchoise;
+	}
+
+	
+}
+
+void Subtraction()
+{
+	char subchoise;
+	double num1, num2, output;
+
+	cout << "Enter First Number: ";
+	cin >> num1;
+	cout << "Enter Second Number: ";
+	cin >> num2;
+
+	output = num1 - num2;
+	cout << "The result is: " << output << endl;
+	cout << "Press 'R' to return to the main Menu" << endl;
+	cout << "Press 'E' to Exit" << endl;
+	cin >> subchoise;
+	system("cls");
+
+	if (subchoise == 'r')
+	{
+		main();
+	}
+	else
+	{
+		cout << "Press 'R' to return to the main Menu" << endl;
+		cin >> subchoise;
+	}
+
+
+}
+
+void Multiplication()
+{
+	char subchoise;
+	double num1, num2, output;
+
+	cout << "Enter First Number: ";
+	cin >> num1;
+	cout << "Enter Second Number: ";
+	cin >> num2;
+
+	output = num1 * num2;
+	cout << "The result is: " << output << endl;
+	cout << "Press 'R' to return to the main Menu" << endl;
+	cout << "Press 'E' to Exit" << endl;
+	cin >> subchoise;
+	system("cls");
+
+	if (subchoise == 'r')
+	{
+		main();
+	}
+	else
+	{
+		cout << "Press 'R' to return to the main Menu" << endl;
+		cin >> subchoise;
+	}
+
+
+}
+
+void Division()
+{
+	char subchoise;
+	double num1, num2, output;
+
+	cout << "Enter First Number: ";
+	cin >> num1;
+	cout << "Enter Second Number: ";
+	cin >> num2;
+
+	output = num1 / num2;
+	cout << "The result is: " << output << endl;
+	cout << "Press 'R' to return to the main Menu" << endl;
+	cout << "Press 'E' to Exit" << endl;
+	cin >> subchoise;
+	system("cls");
+
+	if (subchoise == 'r')
+	{
+		main();
+	}
+	else
+	{
+		cout << "Press 'R' to return to the main Menu" << endl;
+		cin >> subchoise;
+	}
+
+
+}
+
+
+
+
+int menu()
+
+{
+
+	int choice = -1;
+
+	cout << "\tPlease chose the arithmetic operation from the list: " << endl;
+	cout << "\t1- Addition" << endl;
+	cout << "\t2- Subtraction" << endl;
+	cout << "\t3- Multiplication" << endl;
+	cout << "\t4- Division" << endl;
+	cout << "\t0- Exit" << endl;
+
+	choice = getchoice();
+
+	while (choice > 0) //Menu
+	{
+		switch (choice)
+		{
+		case 1: Addition();
+			break;
+		case 2: Subtraction();
+			break;
+		case 3: Multiplication();
+			break;
+		case 4: Division();
+			break;
+		default:
+			break;
+		}
+		choice = getchoice();
+
+	}
+	system("cls");
+	cout << endl << "Thanks..." << endl;
+	return 0;
+
+}
+
+int main()
+{
+	credential();
+	menu();
+
+}
